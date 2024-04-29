@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% block index %}           
+
+    
+        {% if messages %}
+        {% for i in messages %}
+        {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class="alert alert-success">
+            {{i}}
+        </div>
+        {%endif%}
+        {% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class="alert alert-danger">
+            {{i}}
+        </div>
+        {%endif%}
+        {%endfor%}
+        {%endif%}
+        
+                <!-- <form action="" method="post" >
+                    {%csrf_token%}
+                    <table class="table table-light"> -->
+                        {{form.as_table}}
+                    <!-- </table> -->
+                    <!-- <div class="text-center"> -->
+                        <!-- <button class="btn btn-success">LOG IN</button> -->
+                        <div class="pt-1 mb-4">
+                            <button class="btn btn-dark btn-lg btn-block" >Login</button>
+                        </div> 
+                        
+                    <!-- </div> -->
+                <!-- </form> -->
+                <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="{% url 'reg' %}"
+                    style="color: #393f81;">Register here</a></p>
+            
+{% endblock index %}           
